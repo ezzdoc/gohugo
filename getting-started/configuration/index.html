@@ -1,0 +1,2534 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    <link rel="preload" href="http://www.ezzdoc.com/gohugo/fonts/muli-latin-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="http://www.ezzdoc.com/gohugo/fonts/muli-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="http://www.ezzdoc.com/gohugo/fonts/muli-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
+    <title>Configure Hugo | Hugo</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.57.2" />
+
+      
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+      
+
+    
+    
+      <link rel="stylesheet" href="/gohugo/output/css/app.min.2ac9b5935f7ff7709fe13c2b042a4a2d49fa96fb508e3e8870019ee9b72cf329.css" integrity="sha256-Ksm1k19/93Cf4TwrBCpKLUn6lvtQjj6IcAGe6bcs8yk=" crossorigin="anonymous"> 
+          
+    
+
+
+     
+
+    
+  <script type="text/javascript" src="/gohugo/output/js/app.09ca7921ca2b6e15c2dc516eccf642c08861fe5c249cc9073fb370c0a8a9022c.js" integrity="sha256-Ccp5IcorbhXC3FFuzPZCwIhh/lwknMkHP7NwwKipAiw=" crossorigin="anonymous" defer></script>
+      
+ 
+
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0594cb">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Configure Hugo" />
+<meta property="og:description" content="How to configure your Hugo site." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.ezzdoc.com/gohugo/getting-started/configuration/" />
+
+<meta property="og:image" content="http://www.ezzdoc.com/gohugo/images/gohugoio-card.png" />
+<meta property="article:published_time" content="2017-01-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-23T11:16:12+08:00" />
+<meta itemprop="name" content="Configure Hugo">
+<meta itemprop="description" content="How to configure your Hugo site.">
+
+
+<meta itemprop="datePublished" content="2017-01-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-23T11:16:12&#43;08:00" />
+<meta itemprop="wordCount" content="3356">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.ezzdoc.com/gohugo/images/gohugoio-card.png"/>
+
+<meta name="twitter:title" content="Configure Hugo"/>
+<meta name="twitter:description" content="How to configure your Hugo site."/>
+<meta name="twitter:site" content="@GoHugoIO"/>
+
+
+
+          
+
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+
+  <div class="center flex-ns flex-wrap items-center justify-start mw9">
+
+    <h1 class="dim f3 lh-solid ml0-ns mr0 mr4-l mv0 pl3 pl4-ns">
+      <a href="http://www.ezzdoc.com/gohugo/" class="link white">
+         HUGO
+      </a>
+    </h1>
+    <ul class="list ma0 pa0 dn dib-l">
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="/gohugo/news/" class="dim link light-silver">
+            News
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="/gohugo/documentation/" class="dim link light-silver">
+            Docs
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="https://themes.gohugo.io/" class="dim link light-silver">
+            Themes
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="/gohugo/showcase/" class="dim link light-silver">
+            Showcase
+              
+            
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="https://discourse.gohugo.io/" class="dim link light-silver">
+            Community
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+        <li class="f5 dib mr4" role="menuitem">
+            
+          <a href="https://github.com/gohugoio/hugo" class="dim link light-silver">
+            GitHub
+              
+            
+            
+              <span class="pl1">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+              </span>
+            
+          </a>
+        </li>
+      
+    </ul>
+
+    <div class="db dib-ns pl3"><form id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="search-input">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-left bn f5 input-reset lh-solid mt3 mt0-ns pl4 pv2 w5 white" placeholder="Search the Docs" name="search-input" value="" style="background: transparent url('/images/icon-search.png') no-repeat 0 8px /16px 16px;">
+  </fieldset>
+</form>
+</div>
+
+    <span class="absolute mt1 mt2-l pr3 right-0 top-0">
+
+  <a href="https://twitter.com/intent/follow?screen_name=GoHugoIO" title="Follow on Twitter" class="link-transition twitter link dib z-999 pt3 pt0-l mr2">
+    <svg height="32px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+<a class="github-button needs-js link primary-color-dark" href="https://github.com/gohugoio/hugo" data-size="large" data-show-count="false" aria-label="Star gohugoio/hugo on GitHub">Star</a>
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph4 pb5 pb6-ns pt1 pt5-ns">
+    <div class="flex-l">
+
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+		<p class="b">What's on this Page</p>
+  	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#configuration-file">Configuration File</a></li>
+<li><a href="#configuration-directory">Configuration Directory</a></li>
+<li><a href="#all-configuration-settings">All Configuration Settings</a></li>
+<li><a href="#configure-title-case">Configure Title Case</a></li>
+<li><a href="#configuration-environment-variables">Configuration Environment Variables</a></li>
+<li><a href="#configuration-lookup-order">Configuration Lookup Order</a></li>
+<li><a href="#example-configuration">Example Configuration</a></li>
+<li><a href="#configure-with-environment-variables">Configure with Environment Variables</a></li>
+<li><a href="#ignore-files-when-rendering">Ignore Files When Rendering</a></li>
+<li><a href="#configure-front-matter">Configure Front Matter</a>
+<ul>
+<li><a href="#configure-dates">Configure Dates</a></li>
+</ul></li>
+<li><a href="#configure-blackfriday">Configure Blackfriday</a></li>
+<li><a href="#configure-additional-output-formats">Configure Additional Output Formats</a></li>
+<li><a href="#configure-file-caches">Configure File Caches</a>
+<ul>
+<li><a href="#the-keywords-explained">The keywords explained</a></li>
+</ul></li>
+<li><a href="#configuration-format-specs">Configuration Format Specs</a></li>
+</ul></li>
+</ul>
+</nav>
+	
+
+	<div date-pref>
+		
+			<a href="http://www.ezzdoc.com/gohugo/getting-started/code-toggle/" class="dib f6 pl1 hover-bg-light-gray br-100" title="Code Toggle ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+	</div>
+
+</aside>
+</div>
+
+      <div class="order-1 w-60-l mw7 ph0 ph5-ns mid-gray nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote mt0-ns" style="flex-grow:1;">
+        <div class="documentation-copy center measure-wide-l">
+          <div id="readout" class="fixed right-0 bottom-0">
+          </div>
+          <header class="flex-none w-100">
+  
+    
+      <a href="/gohugo/categories/getting-started" class="f6 fw8 mb0 link mid-gray dim mr3">
+        GETTING STARTED
+      </a>
+    
+      <a href="/gohugo/categories/fundamentals" class="f6 fw8 mb0 link mid-gray dim mr3">
+        FUNDAMENTALS
+      </a>
+    
+  
+  <h1 class="lh-title mb3 mv0 pt3 primary-color-dark">Configure Hugo</h1>
+</header>
+
+<aside class="bt bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+    <div class="f4 fw4 lh-copy">
+      How to configure your Hugo site.
+    </div>
+  
+
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+
+
+
+<h2 id="configuration-file">Configuration File</h2>
+
+<p>Hugo uses the <code>config.toml</code>, <code>config.yaml</code>, or <code>config.json</code> (if found in the
+site root) as the default site config file.</p>
+
+<p>The user can choose to override that default with one or more site config files
+using the command line <code>--config</code> switch.</p>
+
+<p>Examples:</p>
+
+<pre><code>hugo --config debugconfig.toml
+hugo --config a.toml,b.toml,c.toml
+</code></pre>
+
+
+<aside class="admonition note">
+	<div class="note-icon">
+		
+	</div>
+	
+	
+	<div class="admonition-content"><p>Multiple site config files can be specified as a comma-separated string to the <code>--config</code> switch.</p>
+</div>
+</aside>
+
+
+
+
+<h2 id="configuration-directory">Configuration Directory</h2>
+
+<p>In addition to using a single site config file, one can use the <code>configDir</code> directory (default to <code>config/</code>) to maintain easier organization and environment specific settings.</p>
+
+<ul>
+<li>Each file represents a configuration root object, such as <code>Params</code>, <code>Menus</code>, <code>Languages</code> etc&hellip;</li>
+<li>Each directory holds a group of files containing settings unique to an environment.</li>
+
+<li><p>Files can be localized to become language specific.</p>
+
+<pre><code>config
+├── _default
+│   ├── config.toml
+│   ├── languages.toml
+│   ├── menus.en.toml
+│   ├── menus.zh.toml
+│   └── params.toml
+├── staging
+│   ├── config.toml
+│   └── params.toml
+└── production
+├── config.toml
+└── params.toml
+</code></pre></li>
+</ul>
+
+<p>Considering the structure above, when running <code>hugo --environment staging</code>, Hugo will use every settings from <code>config/_default</code> and merge <code>staging</code>&rsquo;s on top of those.
+
+<aside class="admonition note">
+	<div class="note-icon">
+		
+	</div>
+	
+	
+	<div class="admonition-content"><p>Default environments are <strong>development</strong> with <code>hugo serve</code> and <strong>production</strong> with <code>hugo</code>.</p>
+</div>
+</aside>
+</p>
+
+<h2 id="all-configuration-settings">All Configuration Settings</h2>
+
+<p>The following is the full list of Hugo-defined variables with their default
+value in parentheses. Users may choose to override those values in their site
+config file(s).</p>
+
+<dl>
+<dt>archetypeDir (&ldquo;archetypes&rdquo;)</dt>
+<dd>The directory where Hugo finds archetype files (content templates). Also see <a href="/hugo-modules/configuration/#module-config-mounts">Module Mounts Config</a> for an alternative way to configure this directory (from Hugo 0.56).</dd>
+<dt>assetDir (&ldquo;assets&rdquo;)</dt>
+<dd>The directory where Hugo finds asset files used in <a href="/hugo-pipes/">Hugo Pipes</a>. Also see <a href="/hugo-modules/configuration/#module-config-mounts">Module Mounts Config</a> for an alternative way to configure this directory (from Hugo 0.56).</dd>
+<dt>baseURL</dt>
+<dd>Hostname (and path) to the root, e.g. <a href="https://bep.is/">https://bep.is/</a></dd>
+<dt>blackfriday</dt>
+<dd>See <a href="/getting-started/configuration/#configure-blackfriday">Configure Blackfriday</a></dd>
+<dt>buildDrafts (false)</dt>
+<dd>Include drafts when building.</dd>
+<dt>buildExpired  (false)</dt>
+<dd>Include content already expired.</dd>
+<dt>buildFuture (false)</dt>
+<dd>Include content with publishdate in the future.</dd>
+<dt>caches</dt>
+<dd>See <a href="#configure-file-caches">Configure File Caches</a></dd>
+<dt>canonifyURLs (false)</dt>
+<dd>Enable to turn relative URLs into absolute.</dd>
+<dt>contentDir (&ldquo;content&rdquo;)</dt>
+<dd>The directory from where Hugo reads content files. Also see <a href="/hugo-modules/configuration/#module-config-mounts">Module Mounts Config</a> for an alternative way to configure this directory (from Hugo 0.56).</dd>
+<dt>dataDir (&ldquo;data&rdquo;)</dt>
+<dd>The directory from where Hugo reads data files. Also see <a href="/hugo-modules/configuration/#module-config-mounts">Module Mounts Config</a> for an alternative way to configure this directory (from Hugo 0.56).</dd>
+<dt>defaultContentLanguage (&ldquo;en&rdquo;)</dt>
+<dd>Content without language indicator will default to this language.</dd>
+<dt>defaultContentLanguageInSubdir (false)</dt>
+<dd>Render the default content language in subdir, e.g. <code>content/en/</code>. The site root <code>/</code> will then redirect to <code>/en/</code>.</dd>
+<dt>disableAliases (false)</dt>
+<dd>Will disable generation of alias redirects. Note that even if <code>disableAliases</code> is set, the aliases themselves are preserved on the page. The motivation with this is to be able to generate 301 redirects in an <code>.htaccess</code>, a Netlify <code>_redirects</code> file or similar using a custom output format.</dd>
+<dt>disableHugoGeneratorInject (false)</dt>
+<dd>Hugo will, by default, inject a generator meta tag in the HTML head on the <em>home page only</em>. You can turn it off, but we would really appreciate if you don&rsquo;t, as this is a good way to watch Hugo&rsquo;s popularity on the rise.</dd>
+<dt>disableKinds ([])</dt>
+<dd>Enable disabling of all pages of the specified <em>Kinds</em>. Allowed values in this list: <code>&quot;page&quot;</code>, <code>&quot;home&quot;</code>, <code>&quot;section&quot;</code>, <code>&quot;taxonomy&quot;</code>, <code>&quot;taxonomyTerm&quot;</code>, <code>&quot;RSS&quot;</code>, <code>&quot;sitemap&quot;</code>, <code>&quot;robotsTXT&quot;</code>, <code>&quot;404&quot;</code>.</dd>
+<dt>disableLiveReload (false)</dt>
+<dd>Disable automatic live reloading of browser window.</dd>
+<dt>disablePathToLower (false)</dt>
+<dd>Do not convert the url/path to lowercase.</dd>
+<dt>enableEmoji (false)</dt>
+<dd>Enable Emoji emoticons support for page content; see the <a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">Emoji Cheat Sheet</a>.</dd>
+<dt>enableGitInfo (false)</dt>
+<dd>Enable <code>.GitInfo</code> object for each page (if the Hugo site is versioned by Git). This will then update the <code>Lastmod</code> parameter for each page using the last git commit date for that content file.</dd>
+<dt>enableInlineShortcodes</dt>
+<dd>Enable inline shortcode support. See <a href="/templates/shortcode-templates/#inline-shortcodes">Inline Shortcodes</a>.</dd>
+<dt>enableMissingTranslationPlaceholders (false)</dt>
+<dd>Show a placeholder instead of the default value or an empty string if a translation is missing.</dd>
+<dt>enableRobotsTXT (false)</dt>
+<dd>Enable generation of <code>robots.txt</code> file.</dd>
+<dt>frontmatter</dt>
+<dd><p>See <a href="#configure-front-matter">Front matter Configuration</a>.</p></dd>
+<dt>footnoteAnchorPrefix (&ldquo;&rdquo;)</dt>
+<dd><p>Prefix for footnote anchors.</p></dd>
+<dt>footnoteReturnLinkContents (&ldquo;&rdquo;)</dt>
+<dd><p>Text to display for footnote return links.</p></dd>
+<dt>googleAnalytics (&ldquo;&rdquo;)</dt>
+<dd><p>Google Analytics tracking ID.</p></dd>
+<dt>hasCJKLanguage (false)</dt>
+<dd><p>If true, auto-detect Chinese/Japanese/Korean Languages in the content. This will make <code>.Summary</code> and <code>.WordCount</code> behave correctly for CJK languages.</p></dd>
+<dt>imaging</dt>
+<dd><p>See <a href="/content-management/image-processing/#image-processing-config">Image Processing Config</a>.</p></dd>
+<dt>languages</dt>
+<dd><p>See <a href="/content-management/multilingual/#configure-languages">Configure Languages</a>.</p></dd>
+<dt>languageCode (&ldquo;&rdquo;)</dt>
+<dd><p>The site&rsquo;s language code.</p></dd>
+<dt>languageName (&ldquo;&rdquo;)</dt>
+<dd><p>The site&rsquo;s language name.</p></dd>
+<dt>disableLanguages</dt>
+<dd><p>See <a href="/content-management/multilingual/#disable-a-language">Disable a Language</a></p></dd>
+<dt>layoutDir (&ldquo;layouts&rdquo;)</dt>
+<dd><p>The directory from where Hugo reads layouts (templates).</p></dd>
+<dt>log (false)</dt>
+<dd><p>Enable logging.</p></dd>
+<dt>logFile (&ldquo;&rdquo;)</dt>
+<dd><p>Log File path (if set, logging enabled automatically).</p></dd>
+<dt>menu</dt>
+<dd><p>See <a href="/content-management/menus/#add-non-content-entries-to-a-menu">Add Non-content Entries to a Menu</a>.</p></dd>
+<dt>module</dt>
+<dd><p>Module config see <a href="/hugo-modules/configuration/">Module Config</a>.</p></dd>
+<dt>newContentEditor (&ldquo;&rdquo;)</dt>
+<dd><p>The editor to use when creating new content.</p></dd>
+<dt>noChmod (false)</dt>
+<dd><p>Don&rsquo;t sync permission mode of files.</p></dd>
+<dt>noTimes (false)</dt>
+<dd><p>Don&rsquo;t sync modification time of files.</p></dd>
+<dt>paginate (10)</dt>
+<dd><p>Default number of elements per page in <a href="/templates/pagination/">pagination</a>.</p></dd>
+<dt>paginatePath (&ldquo;page&rdquo;)</dt>
+<dd><p>The path element used during pagination (<a href="https://example.com/page/2">https://example.com/page/2</a>).</p></dd>
+<dt>permalinks</dt>
+<dd><p>See <a href="/content-management/urls/#permalinks">Content Management</a>.</p></dd>
+<dt>pluralizeListTitles (true)</dt>
+<dd><p>Pluralize titles in lists.</p></dd>
+<dt>publishDir (&ldquo;public&rdquo;)</dt>
+<dd><p>The directory to where Hugo will write the final static site (the HTML files etc.).</p></dd>
+<dt>pygmentsCodeFencesGuessSyntax (false)</dt>
+<dd><p>Enable syntax guessing for code fences without specified language.</p></dd>
+<dt>pygmentsStyle (&ldquo;monokai&rdquo;)</dt>
+<dd><p>Color-theme or style for syntax highlighting. See <a href="https://help.farbox.com/pygments.html">Pygments Color Themes</a>.</p></dd>
+<dt>pygmentsUseClasses (false)</dt>
+<dd><p>Enable using external CSS for syntax highlighting.</p></dd>
+<dt>related</dt>
+<dd><p>See <a href="/content-management/related/#configure-related-content">Related Content</a>.</p></dd>
+<dt>relativeURLs (false)</dt>
+<dd><p>Enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.</p></dd>
+<dt>refLinksErrorLevel (&ldquo;ERROR&rdquo;)</dt>
+<dd><p>When using <code>ref</code> or <code>relref</code> to resolve page links and a link cannot resolved, it will be logged with this logg level. Valid values are <code>ERROR</code> (default) or <code>WARNING</code>. Any <code>ERROR</code> will fail the build (<code>exit -1</code>).</p></dd>
+<dt>refLinksNotFoundURL</dt>
+<dd><p>URL to be used as a placeholder when a page reference cannot be found in <code>ref</code> or <code>relref</code>. Is used as-is.</p></dd>
+<dt>rssLimit (unlimited)</dt>
+<dd><p>Maximum number of items in the RSS feed.</p></dd>
+<dt>sectionPagesMenu (&ldquo;&rdquo;)</dt>
+<dd><p>See <a href="/templates/menu-templates/#section-menu-for-lazy-bloggers">&ldquo;Section Menu for Lazy Bloggers&rdquo;</a>.</p></dd>
+<dt>sitemap</dt>
+<dd><p>Default <a href="/templates/sitemap-template/#configure-sitemap-xml">sitemap configuration</a>.</p></dd>
+<dt>staticDir (&ldquo;static&rdquo;)</dt>
+<dd><p>A directory or a list of directories from where Hugo reads <a href="/content-management/static-files/">static files</a>. Also see <a href="/hugo-modules/configuration/#module-config-mounts">Module Mounts Config</a> for an alternative way to configure this directory (from Hugo 0.56).</p></dd>
+<dt>summaryLength (70)</dt>
+<dd><p>The length of text in words to show in a <a href="/content-management/summaries/#hugo-defined-automatic-summary-splitting"><code>.Summary</code></a>.</p></dd>
+<dt>taxonomies</dt>
+<dd><p>See <a href="/content-management/taxonomies#configure-taxonomies">Configure Taxonomies</a>.</p></dd>
+<dt>theme (&ldquo;&rdquo;)</dt>
+<dd><p>Theme to use (located by default in <code>/themes/THEMENAME/</code>).</p></dd>
+<dt>themesDir (&ldquo;themes&rdquo;)</dt>
+<dd><p>The directory where Hugo reads the themes from.</p></dd>
+<dt>timeout (10000)</dt>
+<dd><p>Timeout for generating page contents, in milliseconds (defaults to 10&nbsp;seconds). <em>Note:</em> this is used to bail out of recursive content generation, if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents) you might need to raise this limit.</p></dd>
+<dt>title (&ldquo;&rdquo;)</dt>
+<dd><p>Site title.</p></dd>
+<dt>titleCaseStyle (&ldquo;AP&rdquo;)</dt>
+<dd><p>See <a href="#configure-title-case">Configure Title Case</a></p></dd>
+<dt>uglyURLs (false)</dt>
+<dd><p>When enabled, creates URL of the form <code>/filename.html</code> instead of <code>/filename/</code>.</p></dd>
+<dt>verbose (false)</dt>
+<dd><p>Enable verbose output.</p></dd>
+<dt>verboseLog (false)</dt>
+<dd><p>Enable verbose logging.</p></dd>
+<dt>watch (false)</dt>
+<dd><p>Watch filesystem for changes and recreate as needed.</p></dd>
+</dl>
+
+
+<aside class="admonition note">
+	<div class="note-icon">
+		
+	</div>
+	
+	
+	<div class="admonition-content"><p>If you are developing your site on a *nix machine, here is a handy shortcut for finding a configuration option from the command line:</p>
+
+<pre><code>cd ~/sites/yourhugosite
+hugo config | grep emoji
+</code></pre>
+
+<p>which shows output like</p>
+
+<pre><code>enableemoji: true
+</code></pre>
+</div>
+</aside>
+
+
+<h2 id="configure-title-case">Configure Title Case</h2>
+
+<p>Set <code>titleCaseStyle</code> to specify the title style used by the <a href="/functions/title/">title</a> template function and the automatic section titles in Hugo. It defaults to <a href="https://www.apstylebook.com/">AP Stylebook</a> for title casing, but you can also set it to <code>Chicago</code> or <code>Go</code> (every word starts with a capital letter).</p>
+
+<h2 id="configuration-environment-variables">Configuration Environment Variables</h2>
+
+<dl>
+<dt>HUGO_NUMWORKERMULTIPLIER</dt>
+<dd>Can be set to increase or reduce the number of workers used in parallel processing in Hugo. If not set, the number of logical CPUs will be used.</dd>
+</dl>
+
+<h2 id="configuration-lookup-order">Configuration Lookup Order</h2>
+
+<p>Similar to the template <a href="/templates/lookup-order/">lookup order</a>, Hugo has a default set of rules for searching for a configuration file in the root of your website&rsquo;s source directory as a default behavior:</p>
+
+<ol>
+<li><code>./config.toml</code></li>
+<li><code>./config.yaml</code></li>
+<li><code>./config.json</code></li>
+</ol>
+
+<p>In your <code>config</code> file, you can direct Hugo as to how you want your website rendered, control your website&rsquo;s menus, and arbitrarily define site-wide parameters specific to your project.</p>
+
+<h2 id="example-configuration">Example Configuration</h2>
+
+<p>The following is a typical example of a configuration file. The values nested under <code>params:</code> will populate the <a href="/variables/site/"><code>.Site.Params</code></a> variable for use in <a href="/templates/">templates</a>:</p>
+
+
+<div class="code relative" id="config">
+	<div class="code-nav flex flex-nowrap items-stretch"><div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.</div>
+			<button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml</button>&nbsp;
+		
+			<button data-toggle-tab="toml" class="tab-button  ba san-serif f6 dib lh-solid ph2 pv2">toml</button>&nbsp;
+		
+			<button data-toggle-tab="json" class="tab-button  ba san-serif f6 dib lh-solid ph2 pv2">json</button>&nbsp;
+		
+	</div>
+	<div class="tab-content">
+		
+			<div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+				<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">baseURL<span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//yoursite.example.com/<span class="w">
+</span><span class="w"></span>footnoteReturnLinkContents<span class="p">:</span><span class="w"> </span>↩<span class="w">
+</span><span class="w"></span>params<span class="p">:</span><span class="w">
+</span><span class="w">  </span>AuthorName<span class="p">:</span><span class="w"> </span>Jon<span class="w"> </span>Doe<span class="w">
+</span><span class="w">  </span>GitHubUser<span class="p">:</span><span class="w"> </span>spf13<span class="w">
+</span><span class="w">  </span>ListOfFoo<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>foo1<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>foo2<span class="w">
+</span><span class="w">  </span>SidebarRecentLimit<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">  </span>Subtitle<span class="p">:</span><span class="w"> </span>Hugo<span class="w"> </span>is<span class="w"> </span>Absurdly<span class="w"> </span>Fast!<span class="w">
+</span><span class="w"></span>permalinks<span class="p">:</span><span class="w">
+</span><span class="w">  </span>posts<span class="p">:</span><span class="w"> </span>/<span class="p">:</span>year/<span class="p">:</span>month/<span class="p">:</span>title/<span class="w">
+</span><span class="w"></span>title<span class="p">:</span><span class="w"> </span>My<span class="w"> </span>Hugo<span class="w"> </span>Site<span class="w">
+</span></code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+			<div data-pane="toml" class="code-copy-content nt3 tab-pane ">
+				<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://yoursite.example.com/&#34;</span>
+<span class="nx">footnoteReturnLinkContents</span> <span class="p">=</span> <span class="s2">&#34;↩&#34;</span>
+<span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;My Hugo Site&#34;</span>
+
+<span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+  <span class="nx">AuthorName</span> <span class="p">=</span> <span class="s2">&#34;Jon Doe&#34;</span>
+  <span class="nx">GitHubUser</span> <span class="p">=</span> <span class="s2">&#34;spf13&#34;</span>
+  <span class="nx">ListOfFoo</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;foo1&#34;</span><span class="p">,</span> <span class="s2">&#34;foo2&#34;</span><span class="p">]</span>
+  <span class="nx">SidebarRecentLimit</span> <span class="p">=</span> <span class="mi">5</span>
+  <span class="nx">Subtitle</span> <span class="p">=</span> <span class="s2">&#34;Hugo is Absurdly Fast!&#34;</span>
+
+<span class="p">[</span><span class="nx">permalinks</span><span class="p">]</span>
+  <span class="nx">posts</span> <span class="p">=</span> <span class="s2">&#34;/:year/:month/:title/&#34;</span>
+</code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+			<div data-pane="json" class="code-copy-content nt3 tab-pane ">
+				<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+   <span class="nt">&#34;baseURL&#34;</span><span class="p">:</span> <span class="s2">&#34;https://yoursite.example.com/&#34;</span><span class="p">,</span>
+   <span class="nt">&#34;footnoteReturnLinkContents&#34;</span><span class="p">:</span> <span class="s2">&#34;↩&#34;</span><span class="p">,</span>
+   <span class="nt">&#34;params&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;AuthorName&#34;</span><span class="p">:</span> <span class="s2">&#34;Jon Doe&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;GitHubUser&#34;</span><span class="p">:</span> <span class="s2">&#34;spf13&#34;</span><span class="p">,</span>
+      <span class="nt">&#34;ListOfFoo&#34;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="s2">&#34;foo1&#34;</span><span class="p">,</span>
+         <span class="s2">&#34;foo2&#34;</span>
+      <span class="p">],</span>
+      <span class="nt">&#34;SidebarRecentLimit&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="nt">&#34;Subtitle&#34;</span><span class="p">:</span> <span class="s2">&#34;Hugo is Absurdly Fast!&#34;</span>
+   <span class="p">},</span>
+   <span class="nt">&#34;permalinks&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;posts&#34;</span><span class="p">:</span> <span class="s2">&#34;/:year/:month/:title/&#34;</span>
+   <span class="p">},</span>
+   <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;My Hugo Site&#34;</span>
+<span class="p">}</span>
+</code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+	</div>
+
+</div>
+
+
+<h2 id="configure-with-environment-variables">Configure with Environment Variables</h2>
+
+<p>In addition to the 3 config options already mentioned, configuration key-values can be defined through operating system environment variables.</p>
+
+<p>For example, the following command will effectively set a website&rsquo;s title on Unix-like systems:</p>
+
+<pre><code>$ env HUGO_TITLE=&quot;Some Title&quot; hugo
+</code></pre>
+
+<p>This is really useful if you use a service such as Netlify to deploy your site. Look at the Hugo docs <a href="https://github.com/gohugoio/hugoDocs/blob/master/netlify.toml">Netlify configuration file</a> for an example.</p>
+
+
+<aside class="admonition note">
+	<div class="note-icon">
+		
+	</div>
+	
+	
+	<div class="admonition-content"><p>Names must be prefixed with <code>HUGO_</code> and the configuration key must be set in uppercase when setting operating system environment variables.</p>
+
+<p>To set config params, prefix the name with <code>HUGO_PARAMS_</code></p>
+</div>
+</aside>
+
+
+
+
+<h2 id="ignore-files-when-rendering">Ignore Files When Rendering</h2>
+
+<p>The following statement inside <code>./config.toml</code> will cause Hugo to ignore files ending with <code>.foo</code> and <code>.boo</code> when rendering:</p>
+
+<pre><code>ignoreFiles = [ &quot;\\.foo$&quot;, &quot;\\.boo$&quot; ]
+</code></pre>
+
+<p>The above is a list of regular expressions. Note that the backslash (<code>\</code>) character is escaped in this example to keep TOML happy.</p>
+
+<h2 id="configure-front-matter">Configure Front Matter</h2>
+
+<h3 id="configure-dates">Configure Dates</h3>
+
+<p>Dates are important in Hugo, and you can configure how Hugo assigns dates to your content pages. You do this by adding a <code>frontmatter</code> section to your <code>config.toml</code>.</p>
+
+<p>The default configuration is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
+<span class="nx">date</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;date&#34;</span><span class="p">,</span> <span class="s2">&#34;publishDate&#34;</span><span class="p">,</span> <span class="s2">&#34;lastmod&#34;</span><span class="p">]</span>
+<span class="nx">lastmod</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;:git&#34;</span><span class="p">,</span> <span class="s2">&#34;lastmod&#34;</span><span class="p">,</span> <span class="s2">&#34;date&#34;</span><span class="p">,</span> <span class="s2">&#34;publishDate&#34;</span><span class="p">]</span>
+<span class="nx">publishDate</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;publishDate&#34;</span><span class="p">,</span> <span class="s2">&#34;date&#34;</span><span class="p">]</span>
+<span class="nx">expiryDate</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;expiryDate&#34;</span><span class="p">]</span></code></pre></div>
+<p>If you, as an example, have a non-standard date parameter in some of your content, you can override the setting for <code>date</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
+<span class="nx">date</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;myDate&#34;</span><span class="p">,</span> <span class="s2">&#34;:default&#34;</span><span class="p">]</span></code></pre></div>
+<p>The <code>:default</code> is a shortcut to the default settings. The above will set <code>.Date</code> to the date value in <code>myDate</code> if present, if not we will look in <code>date</code>,<code>publishDate</code>, <code>lastmod</code> and pick the first valid date.</p>
+
+<p>In the list to the right, values starting with &ldquo;:&rdquo; are date handlers with a special meaning (see below). The others are just names of date parameters (case insensitive) in your front matter configuration.  Also note that Hugo have some built-in aliases to the above: <code>lastmod</code> =&gt; <code>modified</code>, <code>publishDate</code> =&gt; <code>pubdate</code>, <code>published</code> and <code>expiryDate</code> =&gt; <code>unpublishdate</code>. With that, as an example, using <code>pubDate</code> as a date in front matter, will, by default, be assigned to <code>.PublishDate</code>.</p>
+
+<p>The special date handlers are:</p>
+
+<dl>
+<dt><code>:fileModTime</code></dt>
+<dd>Fetches the date from the content file&rsquo;s last modification timestamp.</dd>
+</dl>
+
+<p>An example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
+<span class="nx">lastmod</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;lastmod&#34;</span><span class="p">,</span> <span class="s2">&#34;:fileModTime&#34;</span><span class="p">,</span> <span class="s2">&#34;:default&#34;</span><span class="p">]</span></code></pre></div>
+<p>The above will try first to extract the value for <code>.Lastmod</code> starting with the <code>lastmod</code> front matter parameter, then the content file&rsquo;s modification timestamp. The last, <code>:default</code> should not be needed here, but Hugo will finally look for a valid date in <code>:git</code>, <code>date</code> and then <code>publishDate</code>.</p>
+
+<dl>
+<dt><code>:filename</code></dt>
+<dd>Fetches the date from the content file&rsquo;s filename. For example, <code>2018-02-22-mypage.md</code> will extract the date <code>2018-02-22</code>. Also, if <code>slug</code> is not set, <code>mypage</code> will be used as the value for <code>.Slug</code>.</dd>
+</dl>
+
+<p>An example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
+<span class="nx">date</span>  <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;:filename&#34;</span><span class="p">,</span> <span class="s2">&#34;:default&#34;</span><span class="p">]</span></code></pre></div>
+<p>The above will try first to extract the value for <code>.Date</code> from the filename, then it will look in front matter parameters <code>date</code>, <code>publishDate</code> and lastly <code>lastmod</code>.</p>
+
+<dl>
+<dt><code>:git</code></dt>
+<dd>This is the Git author date for the last revision of this content file. This will only be set if <code>--enableGitInfo</code> is set or <code>enableGitInfo = true</code> is set in site config.</dd>
+</dl>
+
+<h2 id="configure-blackfriday">Configure Blackfriday</h2>
+
+<p><a href="https://github.com/russross/blackfriday">Blackfriday</a> is Hugo&rsquo;s built-in Markdown rendering engine.</p>
+
+<p>Hugo typically configures Blackfriday with sane default values that should fit most use cases reasonably well.</p>
+
+<p>However, if you have specific needs with respect to Markdown, Hugo exposes some of its Blackfriday behavior options for you to alter. The following table lists these Hugo options, paired with the corresponding flags from Blackfriday&rsquo;s source code ( <a href="https://github.com/russross/blackfriday/blob/master/html.go">html.go</a> and <a href="https://github.com/russross/blackfriday/blob/master/markdown.go">markdown.go</a>).</p>
+
+<h2 id="blackfriday-options">Blackfriday Options</h2>
+
+<dl>
+<dt><code>taskLists</code></dt>
+<dd>default: <strong><code>true</code></strong><br>
+Blackfriday flag: <br>
+Purpose: <code>false</code> turns off GitHub-style automatic task/TODO list generation.</dd>
+<dt><code>smartypants</code></dt>
+<dd>default: <strong><code>true</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_USE_SMARTYPANTS</code></strong> <br>
+Purpose: <code>false</code> disables smart punctuation substitutions, including smart quotes, smart dashes, smart fractions, etc. If <code>true</code>, it may be fine-tuned with the <code>angledQuotes</code>, <code>fractions</code>, <code>smartDashes</code>, and <code>latexDashes</code> flags (see below).</dd>
+<dt><code>smartypantsQuotesNBSP</code></dt>
+<dd>default: <strong><code>false</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_SMARTYPANTS_QUOTES_NBSP</code></strong> <br>
+Purpose: <code>true</code> enables French style Guillemets with non-breaking space inside the quotes.</dd>
+<dt><code>angledQuotes</code></dt>
+<dd>default: <strong><code>false</code></strong><br>
+Blackfriday flag: <strong><code>HTML_SMARTYPANTS_ANGLED_QUOTES</code></strong><br>
+Purpose: <code>true</code> enables smart, angled double quotes. Example: &ldquo;Hugo&rdquo; renders to «Hugo» instead of “Hugo”.</dd>
+<dt><code>fractions</code></dt>
+<dd>default: <strong><code>true</code></strong><br>
+Blackfriday flag: <strong><code>HTML_SMARTYPANTS_FRACTIONS</code></strong> <br>
+Purpose: <code>false</code> disables smart fractions.<br>
+Example: <code>5/12</code> renders to <sup>5</sup>&frasl;<sub>12</sub>(<code>&lt;sup&gt;5&lt;/sup&gt;&amp;frasl;&lt;sub&gt;12&lt;/sub&gt;</code>).<br> <small><strong>Caveat:</strong> Even with <code>fractions = false</code>, Blackfriday still converts <code>1/2</code>, <code>1/4</code>, and <code>3/4</code> respectively to ½ (<code>&amp;frac12;</code>), ¼ (<code>&amp;frac14;</code>) and ¾ (<code>&amp;frac34;</code>), but only these three.</small></dd>
+<dt><code>smartDashes</code></dt>
+<dd>default: <strong><code>true</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_SMARTY_DASHES</code></strong> <br>
+Purpose: <code>false</code> disables smart dashes; i.e., the conversion of multiple hyphens into an en-dash or em-dash. If <code>true</code>, its behavior can be modified with the <code>latexDashes</code> flag below.</dd>
+<dt><code>latexDashes</code></dt>
+<dd>default: <strong><code>true</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_SMARTYPANTS_LATEX_DASHES</code></strong> <br>
+Purpose: <code>false</code> disables LaTeX-style smart dashes and selects conventional smart dashes. Assuming <code>smartDashes</code>: <br>
+If <code>true</code>, <code>--</code> is translated into &ndash; (<code>&amp;ndash;</code>), whereas <code>---</code> is translated into &mdash; (<code>&amp;mdash;</code>). <br>
+However, <em>spaced</em> single hyphen between two words is translated into an en&nbsp;dash&mdash; e.g., &ldquo;<code>12 June - 3 July</code>&rdquo; becomes <code>12 June &amp;ndash; 3 July</code> upon rendering.</dd>
+<dt><code>hrefTargetBlank</code></dt>
+<dd>default: <strong><code>false</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_HREF_TARGET_BLANK</code></strong> <br>
+Purpose: <code>true</code> opens <s>external links</s> <strong>absolute</strong> links in a new window or tab. While the <code>target=&quot;_blank&quot;</code> attribute is typically used for external links, Blackfriday does that for <em>all</em> absolute links (<a href="https://discourse.gohugo.io/t/internal-links-in-same-tab-external-links-in-new-tab/11048/8">ref</a>). One needs to make note of this if they use absolute links throughout, for internal links too (for example, by setting <code>canonifyURLs</code> to <code>true</code> or via <code>absURL</code>).</dd>
+<dt><code>nofollowLinks</code></dt>
+<dd>default: <strong><code>false</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_NOFOLLOW_LINKS</code></strong> <br>
+Purpose: <code>true</code> creates <s>external links</s> <strong>absolute</strong> links with <code>nofollow</code> being added to their <code>rel</code> attribute. Thereby crawlers are advised to not follow the link. While the <code>rel=&quot;nofollow&quot;</code> attribute is typically used for external links, Blackfriday does that for <em>all</em> absolute links. One needs to make note of this if they use absolute links throughout, for internal links too (for example, by setting <code>canonifyURLs</code> to <code>true</code> or via <code>absURL</code>).</dd>
+<dt><code>noreferrerLinks</code></dt>
+<dd>default: <strong><code>false</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_NOREFERRER_LINKS</code></strong> <br>
+Purpose: <code>true</code> creates <s>external links</s> <strong>absolute</strong> links with <code>noreferrer</code> being added to their <code>rel</code> attribute. Thus when following the link no referrer information will be leaked. While the <code>rel=&quot;noreferrer&quot;</code> attribute is typically used for external links, Blackfriday does that for <em>all</em> absolute links. One needs to make note of this if they use absolute links throughout, for internal links too (for example, by setting <code>canonifyURLs</code> to <code>true</code> or via <code>absURL</code>).</dd>
+<dt><code>plainIDAnchors</code></dt>
+<dd>default <strong><code>true</code></strong> <br>
+Blackfriday flag: <strong><code>FootnoteAnchorPrefix</code> and <code>HeaderIDSuffix</code></strong> <br>
+Purpose: <code>true</code> renders any heading and footnote IDs without the document ID. <br>
+Example: renders <code>#my-heading</code> instead of <code>#my-heading:bec3ed8ba720b970</code></dd>
+<dt><code>extensions</code></dt>
+<dd>default: <strong><code>[]</code></strong> <br>
+Purpose: Enable one or more Blackfriday&rsquo;s Markdown extensions (<strong><code>EXTENSION_*</code></strong>). <br>
+Example: Include <code>hardLineBreak</code> in the list to enable Blackfriday&rsquo;s <code>EXTENSION_HARD_LINE_BREAK</code>. <br>
+<em>See <a href="#blackfriday-extensions">Blackfriday extensions</a> section for information on all extensions.</em></dd>
+<dt><code>extensionsmask</code></dt>
+<dd>default: <strong><code>[]</code></strong> <br>
+Purpose: Disable one or more of Blackfriday&rsquo;s Markdown extensions (<strong><code>EXTENSION_*</code></strong>). <br>
+Example: Include <code>autoHeaderIds</code> as <code>false</code> in the list to disable Blackfriday&rsquo;s <code>EXTENSION_AUTO_HEADER_IDS</code>. <br>
+<em>See <a href="#blackfriday-extensions">Blackfriday extensions</a> section for information on all extensions.</em></dd>
+<dt><code>skipHTML</code></dt>
+<dd>default: <strong><code>false</code></strong> <br>
+Blackfriday flag: <strong><code>HTML_SKIP_HTML</code></strong> <br>
+Purpose: <code>true</code> causes any HTML in the markdown files to be skipped.</dd>
+</dl>
+
+<h2 id="blackfriday-extensions">Blackfriday extensions</h2>
+
+<dl>
+<dt><code>noIntraEmphasis</code></dt>
+<dd>default: <em>enabled</em> <br>
+Purpose: The &ldquo;_&rdquo; character is commonly used inside words when discussing
+code, so having Markdown interpret it as an emphasis command is usually the
+wrong thing.  When enabled, Blackfriday lets you treat all emphasis markers
+as normal characters when they occur inside a word.</dd>
+<dt><code>tables</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, tables can be created by drawing them in the input
+using the below syntax:
+Example:</p>
+
+<pre><code>   Name | Age
+--------|------
+    Bob | 27
+  Alice | 23
+</code></pre></dd>
+<dt><code>fencedCode</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, in addition to the normal 4-space indentation to mark
+code blocks, you can explicitly mark them and supply a language (to make
+syntax highlighting simple).</p>
+
+<p>You can use 3 or more backticks to mark the beginning of the block, and the
+same number to mark the end of the block.</p>
+
+<p>Example:</p>
+
+<pre><code> ```md
+# Heading Level 1
+Some test
+## Heading Level 2
+Some more test
+```
+</code></pre></dd>
+<dt><code>autolink</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, URLs that have not been explicitly marked as links
+will be converted into links.</p></dd>
+<dt><code>strikethrough</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, text wrapped with two tildes will be crossed out. <br>
+Example: <code>~~crossed-out~~</code></p></dd>
+<dt><code>laxHtmlBlocks</code></dt>
+<dd><p>default: <em>disabled</em> <br>
+Purpose: When enabled, loosen up HTML block parsing rules.</p></dd>
+<dt><code>spaceHeaders</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, be strict about prefix header rules.</p></dd>
+<dt><code>hardLineBreak</code></dt>
+<dd><p>default: <em>disabled</em> <br>
+Purpose: When enabled, newlines in the input translate into line breaks in
+the output.</p></dd>
+<dt><code>tabSizeEight</code></dt>
+<dd><p>default: <em>disabled</em> <br>
+Purpose: When enabled, expand tabs to eight spaces instead of four.</p></dd>
+<dt><code>footnotes</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, Pandoc-style footnotes will be supported.  The
+footnote marker in the text that will become a superscript text; the
+footnote definition will be placed in a list of footnotes at the end of the
+document. <br>
+Example:</p>
+
+<pre><code>This is a footnote.[^1]
+
+[^1]: the footnote text.
+</code></pre></dd>
+<dt><code>noEmptyLineBeforeBlock</code></dt>
+<dd><p>default: <em>disabled</em> <br>
+Purpose: When enabled, no need to insert an empty line to start a (code,
+quote, ordered list, unordered list) block.</p></dd>
+<dt><code>headerIds</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, allow specifying header IDs with <code>{#id}</code>.</p></dd>
+<dt><code>titleblock</code></dt>
+<dd><p>default: <em>disabled</em> <br>
+Purpose: When enabled, support <a href="http://pandoc.org/MANUAL.html#extension-pandoc_title_block">Pandoc-style title blocks</a>.</p></dd>
+<dt><code>autoHeaderIds</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, auto-create the header ID&rsquo;s from the headline text.</p></dd>
+<dt><code>backslashLineBreak</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, translate trailing backslashes into line breaks.</p></dd>
+<dt><code>definitionLists</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, a simple definition list is made of a single-line
+term followed by a colon and the definition for that term. <br>
+Example:</p>
+
+<pre><code>Cat
+: Fluffy animal everyone likes
+
+Internet
+: Vector of transmission for pictures of cats
+</code></pre>
+
+<p>Terms must be separated from the previous definition by a blank line.</p></dd>
+<dt><code>joinLines</code></dt>
+<dd><p>default: <em>enabled</em> <br>
+Purpose: When enabled, delete newlines and join the lines.</p></dd>
+</dl>
+
+
+
+<aside class="admonition note">
+	<div class="note-icon">
+		
+	</div>
+	
+	
+	<div class="admonition-content"><ol>
+<li>Blackfriday flags are <em>case sensitive</em> as of Hugo v0.15.</li>
+<li>Blackfriday flags must be grouped under the <code>blackfriday</code> key and can be set on both the site level <em>and</em> the page level. Any setting on a page will override its respective site setting.</li>
+</ol>
+</div>
+</aside>
+
+
+
+<div class="code relative" id="config">
+	<div class="code-nav flex flex-nowrap items-stretch"><div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.</div>
+			<button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml</button>&nbsp;
+		
+			<button data-toggle-tab="toml" class="tab-button  ba san-serif f6 dib lh-solid ph2 pv2">toml</button>&nbsp;
+		
+			<button data-toggle-tab="json" class="tab-button  ba san-serif f6 dib lh-solid ph2 pv2">json</button>&nbsp;
+		
+	</div>
+	<div class="tab-content">
+		
+			<div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+				<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">blackfriday<span class="p">:</span><span class="w">
+</span><span class="w">  </span>angledQuotes<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>extensions<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>hardLineBreak<span class="w">
+</span><span class="w">  </span>fractions<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">  </span>plainIDAnchors<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+			<div data-pane="toml" class="code-copy-content nt3 tab-pane ">
+				<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">blackfriday</span><span class="p">]</span>
+  <span class="nx">angledQuotes</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="nx">extensions</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;hardLineBreak&#34;</span><span class="p">]</span>
+  <span class="nx">fractions</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">plainIDAnchors</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+			<div data-pane="json" class="code-copy-content nt3 tab-pane ">
+				<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+   <span class="nt">&#34;blackfriday&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;angledQuotes&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&#34;extensions&#34;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="s2">&#34;hardLineBreak&#34;</span>
+      <span class="p">],</span>
+      <span class="nt">&#34;fractions&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&#34;plainIDAnchors&#34;</span><span class="p">:</span> <span class="kc">true</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+			</div>
+			
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				
+			
+		
+	</div>
+
+</div>
+
+
+<h2 id="configure-additional-output-formats">Configure Additional Output Formats</h2>
+
+<p>Hugo v0.20 introduced the ability to render your content to multiple output formats (e.g., to JSON, AMP html, or CSV). See <a href="/templates/output-formats/">Output Formats</a> for information on how to add these values to your Hugo project&rsquo;s configuration file.</p>
+
+<h2 id="configure-file-caches">Configure File Caches</h2>
+
+<p>Since Hugo 0.52 you can configure more than just the <code>cacheDir</code>. This is the default configuration:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">caches</span><span class="p">]</span>
+<span class="p">[</span><span class="nx">caches</span><span class="p">.</span><span class="nx">getjson</span><span class="p">]</span>
+<span class="nx">dir</span> <span class="p">=</span> <span class="s2">&#34;:cacheDir/:project&#34;</span>
+<span class="nx">maxAge</span> <span class="p">=</span> <span class="mi">-1</span>
+<span class="p">[</span><span class="nx">caches</span><span class="p">.</span><span class="nx">getcsv</span><span class="p">]</span>
+<span class="nx">dir</span> <span class="p">=</span> <span class="s2">&#34;:cacheDir/:project&#34;</span>
+<span class="nx">maxAge</span> <span class="p">=</span> <span class="mi">-1</span>
+<span class="p">[</span><span class="nx">caches</span><span class="p">.</span><span class="nx">images</span><span class="p">]</span>
+<span class="nx">dir</span> <span class="p">=</span> <span class="s2">&#34;:resourceDir/_gen&#34;</span>
+<span class="nx">maxAge</span> <span class="p">=</span> <span class="mi">-1</span>
+<span class="p">[</span><span class="nx">caches</span><span class="p">.</span><span class="nx">assets</span><span class="p">]</span>
+<span class="nx">dir</span> <span class="p">=</span> <span class="s2">&#34;:resourceDir/_gen&#34;</span>
+<span class="nx">maxAge</span> <span class="p">=</span> <span class="mi">-1</span>
+<span class="p">[</span><span class="nx">caches</span><span class="p">.</span><span class="nx">modules</span><span class="p">]</span>
+<span class="nx">dir</span> <span class="p">=</span> <span class="s2">&#34;:cacheDir/modules&#34;</span>
+<span class="nx">maxAge</span> <span class="p">=</span> <span class="mi">-1</span></code></pre></div>
+<p>You can override any of these cache setting in your own <code>config.toml</code>.</p>
+
+<h3 id="the-keywords-explained">The keywords explained</h3>
+
+<dl>
+<dt><code>:cacheDir</code></dt>
+<dd>This is the value of the <code>cacheDir</code> config option if set (can also be set via OS env variable <code>HUGO_CACHEDIR</code>). It will fall back to <code>/opt/build/cache/hugo_cache/</code> on Netlify, or a <code>hugo_cache</code> directory below the OS temp dir for the others. This means that if you run your builds on Netlify, all caches configured with <code>:cacheDir</code> will be saved and restored on the next build. For other CI vendors, please read their documentation. For an CircleCI example, see <a href="https://github.com/bep/hugo-sass-test/blob/6c3960a8f4b90e8938228688bc49bdcdd6b2d99e/.circleci/config.yml">this configuration</a>.</dd>
+<dt><code>:project</code></dt>
+<dd>The base directory name of the current Hugo project. This means that, in its default setting, every project will have separated file caches, which means that when you do <code>hugo --gc</code> you will not touch files related to other Hugo projects running on the same PC.</dd>
+<dt><code>:resourceDir</code></dt>
+<dd>This is the value of the <code>resourceDir</code> config option.</dd>
+<dt>maxAge</dt>
+<dd>This is the duration before a cache entry will be evicted, -1 means forever and 0 effectively turns that particular cache off. Uses Go&rsquo;s <code>time.Duration</code>, so valid values are <code>&quot;10s&quot;</code> (10 seconds), <code>&quot;10m&quot;</code> (10 minutes) and <code>&quot;10h&quot;</code> (10 hours).</dd>
+<dt>dir</dt>
+<dd>The absolute path to where the files for this cache will be stored. Allowed starting placeholders are <code>:cacheDir</code> and <code>:resourceDir</code> (see above).</dd>
+</dl>
+
+<h2 id="configuration-format-specs">Configuration Format Specs</h2>
+
+<ul>
+<li><a href="https://github.com/toml-lang/toml">TOML Spec</a></li>
+<li><a href="https://yaml.org/spec/">YAML Spec</a></li>
+<li><a href="https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf" title="Specification for JSON, JavaScript Object Notation">JSON Spec</a></li>
+</ul>
+
+</div>
+
+          
+
+<h2>See Also</h2>
+<ul>
+	
+	<li><a href="/gohugo/getting-started/code-toggle/">Code Toggle</a></li>
+	
+	<li><a href="/gohugo/templates/data-templates/">Data Templates</a></li>
+	
+	<li><a href="/gohugo/content-management/front-matter/">Front Matter</a></li>
+	
+	<li><a href="/gohugo/functions/jsonify/">jsonify</a></li>
+	
+</ul>
+
+        </div>
+      </div>
+      <div class="order-0 w-20 dn db-l">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".about">About Hugo</a>
+        <ul class="about desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/about/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/hugo-and-gdpr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo and GDPR
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/new-in-032/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo 0.32 HOWTO
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/what-is-hugo/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              What is Hugo
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/features/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo Features
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/benefits/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              The Benefits of Static
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/about/license/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              License
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2  primary-color" data-target=".getting-started">Getting Started</a>
+        <ul class="getting-started desktopmenu animated fadeIn list pl0 bg-light-gray db">
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Get Started Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/quick-start/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Quick Start
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/installing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Install Hugo
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/usage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Basic Usage
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/directory-structure/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Directory Structure
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/getting-started/configuration/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 primary-color ">
+              Configuration
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".modules">Hugo Modules</a>
+        <ul class="modules desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-modules/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo Modules Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-modules/configuration/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Configure Modules
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-modules/use-modules/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Use Hugo Modules
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-modules/theme-components/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Theme Components
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".content-management">Content Management</a>
+        <ul class="content-management desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Content Management Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/organization/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Organization
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/page-bundles/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Page Bundles
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/formats/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Supported Content Formats
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/front-matter/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Front Matter
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/page-resources/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Page Resources
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/image-processing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Image Processing
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/sections/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Sections
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/types/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Types
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/archetypes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Archetypes
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/taxonomies/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Taxonomies
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/summaries/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Summaries
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/cross-references/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Links and Cross References
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/urls/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              URL Management
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/menus/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Menus
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/static-files/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Static Files
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/toc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Table of Contents
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/comments/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Comments
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/multilingual/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Multilingual and i18n
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/content-management/syntax-highlighting/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Syntax Highlighting
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".templates">Templates</a>
+        <ul class="templates desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Templates Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/introduction/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Introduction
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/lookup-order/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Template Lookup Order
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/output-formats/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Custom Output Formats
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/base/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Base Templates and Blocks
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/lists/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              List Page Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/homepage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Homepage Template
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/section-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Section Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/taxonomy-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Taxonomy Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/single-page-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Single Page Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/views/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Content View Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/data-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Data Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/partials/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Partial Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/shortcode-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Shortcode Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/files/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Local File Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/404/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              404 Page
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/menu-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Menu Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/pagination/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Pagination
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/rss/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              RSS Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/sitemap-template/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Sitemap Template
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/robots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Robots.txt
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/internal/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Internal Templates
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Alternative Templating
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/templates/template-debugging/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Template Debugging
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".functions">Functions</a>
+        <ul class="functions desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Functions Quick Reference
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/adddate/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .AddDate
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/format/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Format
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/get/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Get
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/getpage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .GetPage
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/hasmenucurrent/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .HasMenuCurrent
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/ismenucurrent/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .IsMenuCurrent
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/param/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Param
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/render/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Render
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/scratch/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Scratch
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/unix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              .Unix
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/abslangurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              absLangURL
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/absurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              absURL
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/after/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              after
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/anchorize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              anchorize
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/append/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              append
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/apply/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              apply
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/base64/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              base64
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/chomp/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              chomp
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/complement/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              complement
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/cond/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              cond
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/countrunes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              countrunes
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/countwords/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              countwords
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/dateformat/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              dateFormat
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/default/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              default
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/delimit/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              delimit
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/dict/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              dict
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/echoparam/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              echoParam
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/emojify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              emojify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/eq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              eq
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/errorf/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              errorf
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/fileexists/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              fileExists
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/findre/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              findRE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/first/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              first
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/float/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              float
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/ge/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ge
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/getenv/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              getenv
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/group/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              group
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/gt/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              gt
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/hasprefix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              hasPrefix
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/highlight/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              highlight
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/htmlescape/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              htmlEscape
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/htmlunescape/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              htmlUnescape
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/humanize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              humanize
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/i18n/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              i18n
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/images/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Image Functions
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/in/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              in
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/index-function/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              index
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/int/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              int
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/intersect/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              intersect
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/isset/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              isset
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/jsonify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              jsonify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/lang.merge/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              lang.Merge
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/numfmt/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              lang.NumFmt
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/last/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              last
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/le/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              le
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/lower/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              lower
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/lt/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              lt
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/markdownify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              markdownify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/math/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Math
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/md5/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              md5
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/merge/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              merge
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/ne/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ne
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/now/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              now
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/os.stat/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              os.Stat
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/partialcached/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              partialCached
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/path.base/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              path.Base
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/path.dir/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              path.Dir
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/path.ext/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              path.Ext
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/path.join/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              path.Join
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/path.split/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              path.Split
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/plainify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              plainify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/pluralize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              pluralize
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/print/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              print
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/printf/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              printf
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/println/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              println
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/querify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              querify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/range/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              range
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/readdir/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              readDir
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/readfile/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              readFile
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/ref/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              ref
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/reflect.ismap/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              reflect.IsMap
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/reflect.isslice/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              reflect.IsSlice
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/rellangurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              relLangURL
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/relref/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              relref
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/relurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              relURL
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/replace/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              replace
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/replacere/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              replaceRE
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/safecss/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              safeCSS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/safehtml/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              safeHTML
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/safehtmlattr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              safeHTMLAttr
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/safejs/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              safeJS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/safeurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              safeURL
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/seq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              seq
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/sha/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              sha
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/shuffle/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              shuffle
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/singularize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              singularize
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/slice/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              slice
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/slicestr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              slicestr
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/sort/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              sort
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/split/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              split
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/string/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              string
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.hassuffix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.HasSuffix
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.repeat/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.Repeat
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.runecount/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.RuneCount
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.trimleft/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.TrimLeft
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.trimprefix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.TrimPrefix
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.trimright/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.TrimRight
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/strings.trimsuffix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              strings.TrimSuffix
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/substr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              substr
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/symdiff/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              symdiff
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/templates.exists/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              templates.Exists
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/time/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              time
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/title/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              title
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/transform.unmarshal/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              transform.Unmarshal
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/trim/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              trim
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/truncate/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              truncate
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/union/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              union
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/uniq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              uniq
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/upper/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              upper
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/urlize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              urlize
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/urls.parse/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              urls.Parse
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/where/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              where
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/functions/with/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              with
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".variables">Variables</a>
+        <ul class="variables desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Variables Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/site/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Site Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/page/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Page Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/shortcodes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Shortcode Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/taxonomy/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Taxonomy Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/files/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              File Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/menus/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Menu Entry Properties
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/hugo/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/git/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Git Variables
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/variables/sitemap/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Sitemap Variables
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".pipes">Hugo Pipes</a>
+        <ul class="pipes desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/introduction/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo Pipes Introduction
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/scss-sass/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              SASS / SCSS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/postcss/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              PostCSS
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/minification/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Asset minification
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/bundling/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Asset bundling
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/fingerprint/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Fingerprinting and SRI
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/resource-from-template/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Resource from Template
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hugo-pipes/resource-from-string/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Resource from String
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="/gohugo/commands/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".commands">CLI</a>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".troubleshooting">Troubleshooting</a>
+        <ul class="troubleshooting desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/troubleshooting/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Troubleshoot
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/troubleshooting/build-performance/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Build Performance
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".tools">Tools</a>
+        <ul class="tools desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Developer Tools Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/migrations/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Migrations
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/starter-kits/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Starter Kits
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/frontends/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Frontends
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/editors/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Editor Plug-ins
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/search/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Search
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/tools/other/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Other Projects
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".hosting-and-deployment">Hosting &amp; Deployment</a>
+        <ul class="hosting-and-deployment desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hosting &amp; Deployment Overview
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hugo-deploy/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hugo Deploy
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/deployment-with-nanobox/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host-Agnostic Deploys with Nanobox
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-aws-amplify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on AWS Amplify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-netlify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on Netlify
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-render/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on Render
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-firebase/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on Firebase
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-github/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on GitHub
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-gitlab/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on GitLab
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-keycdn/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Hosting on KeyCDN
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/hosting-on-bitbucket/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Host on Bitbucket
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/deployment-with-wercker/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Deployment with Wercker
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/hosting-and-deployment/deployment-with-rsync/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Deployment with Rsync
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".contribute">Contribute</a>
+        <ul class="contribute desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+          <li class="f6 fw4">
+            <a href="/gohugo/contribute/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Contribute to Hugo
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/contribute/development/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Development
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/contribute/documentation/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Documentation
+            </a>
+          </li>
+          <li class="f6 fw4">
+            <a href="/gohugo/contribute/themes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+              Themes
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="/gohugo/hugo-pipes/" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".">Maintenance</a>
+      </li>
+  </ul>
+</nav>
+
+      </div>
+
+    </div>
+  </article>
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="http://www.ezzdoc.com/gohugo/getting-started/configuration/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “Configure Hugo”
+  </a> was last updated: September 23, 2019: <a class="hide-child link primary-color" href="https://github.com/gohugoio/hugoDocs/commit/f1186e542a580966bb6b47d15a752bd6dc36b794">添加原始数据内容（部分内容删减见diffWithHugoDocs.png） (f1186e5)</a>
+</h6>
+
+      <a href="https://github.com/gohugoio/hugoDocs/edit/master/content/en/getting-started/configuration.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="bg-primary-color-dark ph4-ns pt4 relative w-100" role="contentinfo">
+    <div class="center flex-ns flex-wrap justify-between mw9 w-90">
+      <div class="pb3 pt4 w-100 w-50-ns">
+
+         <div class="b f3  light-gray mb3 nested-links tc">
+           By the <a href="https://github.com/gohugoio/hugo/graphs/contributors" class="link">Hugo Authors</a><br />
+          </div>
+
+          <div class="center w4">
+            <img src="/images/hugo-logo-wide.svg" alt="Hugo Logo">
+          </div>
+
+          <ul class="center f6 list ma0 mv3 pa0 tc"><li class="dib mr3"><a href="https://github.com/gohugoio/hugo/issues/new" class="dim link light-gray pv2">File an Issue</a></li><li class="dib mr3"><a href="https://discourse.gohugo.io/" class="dim link light-gray pv2">Get Help</a></li><li class="dib"><a href="https://gitter.im/spf13/hugo" class="dim link light-gray pv2">Discuss Source Code</a></li></ul>
+
+          <ul class="center f6 list ma0 mv4 pa0 tc">
+            <li class="dib mr3"><a href="https://twitter.com/gohugoio" class="dim link light-gray pv2">@GoHugoIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/spf13" class="dim link light-gray pv2">@spf13</a></li>
+            <li class="dib"><a href="https://twitter.com/bepsays" class="dim link light-gray pv2">@bepsays</a></li>
+          </ul>
+
+          
+
+      </div>
+
+      <div class="w-100 w-50-l"> 
+        
+
+
+  <section class="pb3 w-100">
+    <div class="center mw9"> 
+      <h3 class="b f3 mv0 light-gray">Hugo Sponsors</h3>
+      <div class="flex-ns flex-wrap center justify-between pt3">
+        
+          
+          
+            <div class="ba b--light-gray bg-light-gray br3 flex flex-column flex-wrap items-center justify-center ph3 pv4 mb4 w-100 w-30-l  o-100">
+              
+                
+                   <a href="https://forestry.io/?utm_campaign=hugosponsor&amp;utm_medium=banner&amp;utm_source=homepage" class="grow">
+                
+              <img src="/images/sponsors/forestry-logotype.svg" alt="Logo for Forestry.io" class="img h3 center" />
+              </a>
+              
+            </div>
+          
+        
+          
+          
+            <div class="ba b--light-gray bg-light-gray br3 flex flex-column flex-wrap items-center justify-center ph3 pv4 mb4 w-100 w-30-l  o-100">
+              
+                
+                   <a href="https://www.linode.com/?utm_campaign=hugosponsor&amp;utm_medium=banner&amp;utm_source=homepage" class="grow">
+                
+              <img src="/images/sponsors/linode-logo_standard_light_medium.png" alt="Logo for Linode" class="img h3 center" />
+              </a>
+              
+            </div>
+          
+        
+          
+          
+            <div class="ba b--light-gray bg-light-gray br3 flex flex-column flex-wrap items-center justify-center ph3 pv4 mb4 w-100 w-30-l  o-100">
+              
+                
+                   <a href="https://esolia.com/post/why-did-esolia-choose-hugo/?utm_campaign=hugosponsor&amp;utm_medium=banner&amp;utm_source=homepage" class="grow">
+                
+              <img src="/images/sponsors/esolia-logo.svg" alt="Logo for eSolia" class="img h3 center" />
+              </a>
+              
+            </div>
+          
+        
+      </div>
+    </div>
+  </section>
+
+
+      </div>
+
+    </div>
+
+    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+      <p class="dib mr4">The Hugo logos are copyright © Steve Francia 2013–2019.</p>
+      <p class="dib">The Hugo Gopher is based on an original work by Renée French.</p>
+    </div>
+
+    <img src="/images/gopher-side_color.svg" class="absolute-l bottom-0 dn db-l h4 right-0 z-999"/>
+
+    <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100"><div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://themes.gohugo.io/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Themes
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/showcase/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Showcase
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://discourse.gohugo.io/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/gohugoio/hugo" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/about/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          About Hugo
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/getting-started/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Getting Started
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/gohugo/hugo-modules/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Hugo Modules
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/content-management/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Content Management
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/templates/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Templates
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/functions/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Functions
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/variables/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Variables
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/hugo-pipes/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Hugo Pipes
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/gohugo/commands/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          CLI
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/troubleshooting/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Troubleshooting
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/tools/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Tools
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/hosting-and-deployment/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Hosting &amp; Deployment
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/gohugo/contribute/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Contribute
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/gohugo/hugo-pipes/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Maintenance
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l justify-between">
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link mr2 white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+</div>
+
+</footer>
+
+    
+
+  </body>
+</html>
